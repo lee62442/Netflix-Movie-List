@@ -1,0 +1,48 @@
+body {
+  font-family: 'Netflix Sans', Helvetica, Arial, sans-serif;
+  background-color: black;
+  color: white;
+  box-sizing: border-box;
+  margin: 1rem;
+}
+
+.logo {
+  margin: 1rem 1rem -2rem 1rem ;
+  width: 180px;
+  height: 70px;
+}
+
+.mylist {
+  margin: 3rem 0 0 2rem; 
+}
+
+li {
+  display: inline;
+  margin: 2rem;
+  left: -1rem;
+}
+
+li > div {
+  display: inline-block;
+}
+
+.Movie {
+  position: relative;
+  height: 14rem;
+}
+.Movie:hover > div > button {
+  cursor: pointer;
+  display: inline;
+}
+
+button {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 25%;
+  width: 50%;
+  height: 25px;
+  font-size: 14px;
+  background-color: white;
+  color: #000;
+}
