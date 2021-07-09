@@ -26,11 +26,11 @@ li > div {
   display: inline-block;
 }
 
-.Movie {
+.movie {
   position: relative;
   height: 14rem;
 }
-.Movie:hover > div > button {
+.movie:hover > div > button {
   cursor: pointer;
   display: inline;
 }

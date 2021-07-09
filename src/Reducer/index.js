@@ -1,6 +1,6 @@
 const State = {
-  ml: [],
-  rec: [],
+  mylist: [],
+  recommendations: [],
 };
 
 const listReducer = (state = State, action) => {
@@ -8,23 +8,23 @@ const listReducer = (state = State, action) => {
     case "FETCH":
       return {
         ...state,
-        ml: action.data[0].mylist,
-        rec: action.data[0].recommendations,
+        mylist: action.data[0].mylist,
+        recommendations: action.data[0].recommendations,
       };
     case "ADD":
       return {
         ...state,
-        ml: [...state.ml, state.rec[action.id]],
-        rec: [
-          ...state.rec.slice(0, action.id),
-          ...state.rec.slice(action.id + 1),
+        mylist: [...state.mylist, state.recommendations[action.id]],
+        recommendations: [
+          ...state.recommendations.slice(0, action.id),
+          ...state.recommendations.slice(action.id + 1),
         ],
       };
     case "REMOVE":
       return {
         ...state,
-        ml: [...state.ml.slice(0, action.id), ...state.ml.slice(action.id + 1)],
-        rec: [...state.rec, state.ml[action.id]],
+        mylist: [...state.mylist.slice(0, action.id), ...state.mylist.slice(action.id + 1)],
+        recommendations: [...state.recommendations, state.mylist[action.id]],
       };
     default:
       return state;

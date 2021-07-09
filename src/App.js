@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import MovieList from "./Components/listElement";
+import MovieList from "./Components/movieList";
 import { connect } from "react-redux";
 import * as actions from "./Actions";
 import "./styles.css";
@@ -24,11 +24,11 @@ class App extends Component {
         <img className="logo" src={logo} alt="Netflix Logo" />
         <h2 className="mylist">My List</h2>
         <ul>
-          {this.props.ml.map((mv, i) => {
+          {this.props.mylist.map((movie, i) => {
             return (
-              <li className="Movie" key={mv.id}>
+              <li className="movie" key={movie.id}>
                 <div>
-                  <MovieList m={mv} />
+                  <MovieList movieItem={movie} />
                   <button onClick={() => this.remove(i)}>REMOVE</button>
                 </div>
               </li>
@@ -37,11 +37,11 @@ class App extends Component {
         </ul>
         <h2 className="mylist">My Recommendations</h2>
         <ul>
-          {this.props.rec.map((mv, i) => {
+          {this.props.recommendations.map((movie, i) => {
             return (
-              <li className="Movie" key={mv.id}>
+              <li className="Movie" key={movie.id}>
                 <div>
-                  <MovieList m={mv} />
+                  <MovieList movieItem={movie} />
                   <button onClick={() => this.add(i)}>ADD</button>
                 </div>
               </li>
@@ -55,8 +55,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    ml: state.ml,
-    rec: state.rec,
+    mylist: state.mylist,
+    recommendations: state.recommendations,
   };
 };
 
